@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include "Date.h"
 using namespace std;
 
 #define MAX_OWNED_CARS 3
@@ -213,32 +214,6 @@ char get_choice(char last_choice)
 	}
 }
 
-bool leap_year(unsigned int year)
-{
-	if (year % 4 == 0)
-	{
-		if (year % 100 == 0)
-		{
-			if (year % 400 == 0)
-			{
-				return true;
-			}
-			else
-			{
-				return false;
-			}
-		}
-		else
-		{
-			return true;
-		}
-	}
-	else
-	{
-		return false;
-	}
-}
-
 bool valid_license(unsigned int license)
 {
 	// stored_drivers indexing is based in the driver's license number
@@ -270,61 +245,6 @@ bool valid_car_plate(unsigned int car_plate)
 	{
 		return false;
 	}
-}
-
-bool valid_day(unsigned int day, unsigned int month_end)
-{
-	if (day > 0 && day <= month_end)
-	{
-		return true;
-	}
-	else
-	{
-		return false;
-	}
-}
-
-bool valid_date(date input_date)
-{
-	if (input_date.year > 0)
-	{
-		if (input_date.month > 0 && input_date.month < 13)
-		{
-			switch (input_date.month)
-			{
-			case 1:
-			case 3:
-			case 5:
-			case 7:
-			case 8:
-			case 10:
-			case 12:
-				return valid_day(input_date.day, 31);
-				break;
-			case 2:
-				if (leap_year(input_date.year))
-				{
-					return valid_day(input_date.day, 29);
-				}
-				else
-				{
-					return valid_day(input_date.day, 28);
-				}
-				break;
-			case 4:
-			case 6:
-			case 9:
-			case 11:
-				return valid_day(input_date.day, 30);
-				break;
-			}
-		}
-		else
-		{
-			return false;
-		}
-	}
-	return false;
 }
 
 bool car_search_name(string owner_name)
@@ -390,7 +310,7 @@ void record_fine()
 	cout << "\n\n\tHello Officer!\n";
 	unsigned int car_plate;
 	float car_speed, road_max_speed;
-	date fine_date;
+	Date fine_date;
 	string street_name;
 
 	cout << "\n\n\tEnter car plate: ";
@@ -436,12 +356,13 @@ void record_fine()
 	cin.ignore();
 	getline(cin, street_name);
 	cout << "\n\n\tEnter the date of the fine\n\t(day - month - year) space separated: ";
-	cin >> fine_date.day >> fine_date.month >> fine_date.year;
+	cin >> fine_date.m_day >> fine_date.m_month >> fine_date.m_year;
+
 
 	while (!valid_date(fine_date))
 	{
 		cout << "\n\n\tPlease enter a valid date\n\t(day - month - year) space separated: ";
-		cin >> fine_date.day >> fine_date.month >> fine_date.year;
+		cin >> fine_date.m_day >> fine_date.m_month >> fine_date.m_year;
 	}
 
 	unsigned int fine_number = stored_cars[car_plate - 1].current_fine_number;

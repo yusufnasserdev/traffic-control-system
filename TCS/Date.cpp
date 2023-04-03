@@ -1,10 +1,8 @@
 #include "Date.h"
 
 Date::Date(ushort day, ushort month, ushort year)
+	: m_day(day), m_month(month), m_year(year)
 {
-	this->day = day;
-	this->month = month;
-	this->year = year;
 }
 
 Date::~Date()
@@ -13,23 +11,16 @@ Date::~Date()
 
 bool Date::valid_day(ushort day, ushort month_end)
 {
-	if (day > 0 && day <= month_end)
-	{
-		return true;
-	}
-	else
-	{
-		return false;
-	}
+	return (day > 0 && day <= month_end);
 }
 
-bool Date::valid_date()
+bool Date::is_valid()
 {
-	if (this->year > 0)
+	if (this->m_year > 0)
 	{
-		if (this->month > 0 && this->month < 13)
+		if (this->m_month > 0 && this->m_month < 13)
 		{
-			switch (this->month)
+			switch (this->m_month)
 			{
 			case 1:
 			case 3:
@@ -38,23 +29,23 @@ bool Date::valid_date()
 			case 8:
 			case 10:
 			case 12:
-				return valid_day(this->day, 31);
+				return valid_day(this->m_day, 31);
 				break;
 			case 2:
-				if (leap_year(this->year))
+				if (leap_year(this->m_year))
 				{
-					return valid_day(this->day, 29);
+					return valid_day(this->m_day, 29);
 				}
 				else
 				{
-					return valid_day(this->day, 28);
+					return valid_day(this->m_day, 28);
 				}
 				break;
 			case 4:
 			case 6:
 			case 9:
 			case 11:
-				return valid_day(this->day, 30);
+				return valid_day(this->m_day, 30);
 				break;
 			}
 		}
@@ -72,22 +63,11 @@ bool Date::leap_year(ushort year)
 	{
 		if (year % 100 == 0)
 		{
-			if (year % 400 == 0)
-			{
-				return true;
-			}
-			else
-			{
-				return false;
-			}
+			return (year % 400 == 0);
 		}
-		else
-		{
-			return true;
-		}
+
+		return true;
 	}
-	else
-	{
-		return false;
-	}
+
+	return false;
 }
