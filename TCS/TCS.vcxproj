@@ -129,12 +129,15 @@
   <ItemGroup>
     <ClCompile Include="Date.cpp" />
     <ClCompile Include="Driver.cpp" />
+    <ClCompile Include="Fine.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Model.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Date.h" />
+    <ClInclude Include="Dependencies.h" />
     <ClInclude Include="Driver.h" />
+    <ClInclude Include="Fine.h" />
     <ClInclude Include="Model.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
