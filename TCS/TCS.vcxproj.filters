@@ -19,6 +19,12 @@
     <Filter Include="Header Files\Entities">
       <UniqueIdentifier>{dfc80ad2-2d73-4079-aed8-12bb740df810}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\CLI">
+      <UniqueIdentifier>{ffdd16b6-1320-4ccf-afeb-94cfc5eda8aa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\CLI">
+      <UniqueIdentifier>{26030637-72eb-4659-90c0-f32407eb7729}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
