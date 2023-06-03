@@ -13,6 +13,22 @@ The college requirements for this course can be found in the [assets](./assets/R
 ## Documentation
 The documentation of the project is available in the [assets](./assets/Report.pdf) folder, it is thorough and explains the project in detail.
 
+## Data Validation
+The project uses data validation to ensure the correctness of the data entered by the user. 
+It is done through the use of multiple functions that check the data entered by the user falls within the required range.
+
+Functions used for data validation:
+- `bool valid_license(unsigned int license)` - Checks if the license number is valid.
+- `bool valid_license(unsigned int license)` - Checks if the license number is valid.
+- `bool valid_car_plate(unsigned int plate)` - Checks if the car plate number is valid.
+
+- `bool valid_date(date input_date)` - Checks if the date is valid, uses the `bool valid_month(unsigned int month)`, `bool leap_year(unsigned int year)`, and `bool valid_day(unsigned int day, unsigned int month, unsigned int year)` functions.
+
+- `bool valid_month(unsigned int month)` - Checks if the month is valid.
+- `bool leap_year(unsigned int year)` - Checks if the year is a leap year.
+- `bool valid_day(unsigned int day, unsigned int month, unsigned int year)` - Checks if the day is valid.
+
+
 ## Overview
 This is a simple system that allows the registration of cars and drivers, and the recording of fines. The system also allows the payment of fines.
 
