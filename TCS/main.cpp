@@ -116,9 +116,15 @@ bool valid_car_plate(unsigned int);
 
 bool valid_day(unsigned int, unsigned int);
 
-// @param date - user input date
-// @return returns bool - whether the date is valid or not
-// checks whether the date is a valid one or not
+/**
+ * @brief checks whether the date is a valid one or not
+ * 
+ * 
+ * @param date user input date
+ * 
+ * @returns true - if the date is valid, otherwise false
+ *  
+ */
 
 bool valid_date(date);
 
